@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[hsl(0,0%,98%)] dark:bg-[hsl(207,26%,17%)] dark:text-[hsl(0,0%,100%)]">
+    <!-- Start Header -->
+    <header class="bg-white dark:bg-[hsl(209,23%,22%)] shadow-md py-[20px]">
+        <div class="container px-[15px] flex items-center justify-between">
+            <h1 class="font-[800] text-[20px]">Where in the world?</h1>
+            <div class="switch flex items-center gap-2 cursor-pointer">
+                <i class="fa-regular fa-moon text-[16px]"></i>
+                <p>Dark Mode</p>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <!--Start Main  -->
+    <main class="mt-[40px]">
+        <div class="container px-[15px]">
+            <!-- start serach party of main -->
+            <section id="main-search" class="flex items-center justify-between">
+                <div class="search bg-white dark:bg-[hsl(209,23%,22%)] shadow-md py-3 px-4 w-[30%]">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="outline-none border-none ms-3 dark:bg-[hsl(209,23%,22%)]" id="country-search" placeholder="Search for a country...">
+                </div>
+                <div class="filter bg-white dark:bg-[hsl(209,23%,22%)] shadow-md py-3 px-2 relative">
+                    <div class="filter-header flex items-center justify-between gap-[30px] cursor-pointer">
+                        <p class="font-[600]">Filter by Region</p>
+                        <i class="fa-solid fa-angle-up"></i>
+                    </div>
+                    <ul class="filter-content absolute bg-white dark:bg-[hsl(209,23%,22%)] w-full left-0 transition-all duration-500 ease-in invisible  py-3 px-2 shadow-md">
+                        <li>Africa</li>
+                        <li>Americas</li>
+                        <li>Asia</li>
+                        <li>Europe</li>
+                        <li>Oceania</li>
+                    </ul>
+
+                </div>
+            </section>
+            <!-- End serach party of main -->
+            <!-- start party of countrys -->
+            <section id="main-countries" class="mt-[40px] grid grid-cols-auto-fill-250 gap-[30px]">
+                <!-- <article class="bg-white dark:bg-[hsl(209,23%,22%)] shadow-md w-[250px]">
+                    <img class="object-cover w-full h-[130px]" src="al.png" alt="">
+                    <div class="article-content p-5">
+                        <h2 class="font-[900] mb-2">Germany</h2>
+                        <p class="font-[300]"><span class="font-[600]">Population:</span> 144545645</p>
+                        <p class="font-[300]"><span class="font-[600]">Region:</span> Asia</p>
+                        <p class="font-[300]"><span class="font-[600]">Capital:</span> Kabiol</p>
+                    </div>
+                </article> -->
+                
+                
+                
+                
+            </section>
+        </div>
+    </main>
+    <!--End Main  -->
+    <script src="js/script.js"></script>
+</body>
+</html>
