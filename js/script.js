@@ -47,7 +47,7 @@ function insertData(data){
 }
 function addcountry(country){
     return `
-                <article class="bg-white dark:bg-[hsl(209,23%,22%)] shadow-md w-[250px]">
+                <article onclick="passCountryName(this)" class="bg-white dark:bg-[hsl(209,23%,22%)] shadow-md w-[250px]">
                     <img class="object-cover w-full h-[130px]" src="${country.flags.png}" alt="">
                     <div class="article-content p-5">
                         <h2 class="font-[900] mb-2">${country.name}</h2>
@@ -69,6 +69,13 @@ function searchForCountry(){
 
     })
     countries.innerHTML=articles;
+    
+
+}
+function passCountryName(event){
+    let countryName=event.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+    localStorage.setItem("country",countryName);
+    window.location.href="country.html"
     
 
 }
