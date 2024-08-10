@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link id="icon" rel="icon" href="image/website-icon.png" type="image/x-icon">
     <!-- font family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +30,8 @@
     <main class="mt-[40px]">
         <div class="container px-[15px]">
             <!-- start serach party of main -->
-            <section id="main-search" class="flex items-center justify-between">
-                <div class="search bg-white dark:bg-[hsl(209,23%,22%)] shadow-md py-3 px-4 w-[30%]">
+            <section id="main-search" class="flex items-center justify-between gap-[30px] flex-wrap">
+                <div class="search bg-white dark:bg-[hsl(209,23%,22%)] shadow-md py-3 px-4 w-full sm:w-[300px] lg:w-[30%]">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" class="outline-none border-none ms-3 dark:bg-[hsl(209,23%,22%)]" id="country-search" placeholder="Search for a country...">
                 </div>
@@ -50,7 +52,7 @@
             </section>
             <!-- End serach party of main -->
             <!-- start party of countrys -->
-            <section id="main-countries" class="mt-[40px] grid grid-cols-auto-fill-250 gap-[30px]">
+            <section id="main-countries" class="mt-[40px] grid grid-cols-auto-fill-250 gap-[30px] place-items-center">
                 <!-- <article class="bg-white dark:bg-[hsl(209,23%,22%)] shadow-md w-[250px]">
                     <img class="object-cover w-full h-[130px]" src="al.png" alt="">
                     <div class="article-content p-5">

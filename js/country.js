@@ -12,6 +12,7 @@ const backbtn=document.querySelector("main .container a");
 const countryOfName=localStorage.getItem("country")
 const darkBtn=document.querySelector(".switch");
 
+
 // Dark Mode Party
 if("theme" in localStorage && localStorage.theme==="dark"){
     document.documentElement.classList.add("dark")
@@ -19,11 +20,15 @@ if("theme" in localStorage && localStorage.theme==="dark"){
 
 
 // Function 
+function addIcon(img){
+    const icon=document.getElementById("icon");
+    icon.setAttribute("href",img);
+}
 function getCountryInfo(){
     let data=JSON.parse(localStorage.getItem("data"));
     for(i=0;i<data.length;i++){
         let countryName=data[i].name;
-        if(countryName.includes(countryOfName)){
+        if(countryName.toLowerCase()===countryOfName.toLowerCase()){
             return data[i]
         }
     }
@@ -32,26 +37,29 @@ addInfoOfCountry()
 function addInfoOfCountry(){
     let country= getCountryInfo();
     let Borders=getBorderCountry(country);
+    let icon=country.flags.svg
+    addIcon(icon)
+
     countryContent.innerHTML=`
-    <img src="${country.flags.png}" class="country-img h-full w-full sm:w-[450px] lg:w-[600px]" alt="Hero-Image">
+    <img src="${country.flags.png}" class="country-img h-full w-full sm:w-[450px] lg:w-[600px] rounded-md" alt="Hero-Image">
                 <div class="country-content flex-1 align-top">
                     <h2 class="font-[900] text-[26px] mb-[30px]">${country.name}</h2>
-                    <div class="country-detaill flex justify-between mb-[50px]">
+                    <div class="country-detaill flex flex-col sm:flex-row gap-[40px] sm:gap-0 justify-between mb-[50px]">
                         <div class="">
-                            <p class="font-[300]"><span class="font-[600]">Native Name: </span>${country.nativeName}</p>
-                            <p class="font-[300]"><span class="font-[600]">Population: </span>${country.population}</p>
-                            <p class="font-[300]"><span class="font-[600]">Region: </span>${country.region}</p>
-                            <p class="font-[300]"><span class="font-[600]">Sub Region: </span>${country.subregion}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Native Name: </span>${country.nativeName}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Population: </span>${country.population}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Region: </span>${country.region}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Sub Region: </span>${country.subregion}</p>
                             <p class="font-[300]"><span class="font-[600]">Capital: </span>${country.capital}</p>
                         </div>
                         <div class="">
-                            <p class="font-[300]"><span class="font-[600]">Top Level Domain: </span>${country.topLevelDomain}</p>
-                            <p class="font-[300]"><span class="font-[600]">Currencies: </span>${country.currencies[0].code}</p>
-                            <p class="font-[300]"><span class="font-[600]">Languages: </span>${getLuanguaOfCountry(country)}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Top Level Domain: </span>${country.topLevelDomain}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Currencies: </span>${country.currencies[0].code}</p>
+                            <p class="font-[300] mb-2"><span class="font-[600]">Languages: </span>${getLuanguaOfCountry(country)}</p>
                         </div>
                     </div>
-                    <div class="border-country flex items-center gap-4">
-                        <p class="font-[700]">Border Countries:</p>
+                    <div class="border-country flex sm:items-center gap-4 flex-col sm:flex-row">
+                        <p class="font-[600]">Border Countries:</p>
                         <ul class="flex gap-2 flex-wrap items-center ">
                         ${insertBordersCountry(Borders)}
                         </ul>
@@ -71,9 +79,11 @@ function getLuanguaOfCountry(country){
 function getBorderCountry(country){
     let bordersCountry=[];
     let countryBorders=country.borders;
-    let data=JSON.parse(localStorage.getItem("data"))
+    console.log(countryBorders,country);
     
-    countryBorders.forEach(border=>{
+    let data=JSON.parse(localStorage.getItem("data"))
+    if(countryBorders){
+        countryBorders.forEach(border=>{
         data.forEach(country=>{
             let countryCode=country.alpha3Code;
             if(countryCode.includes(border)){
@@ -82,6 +92,8 @@ function getBorderCountry(country){
             }
         })
     })
+    }
+    
 
     
     return bordersCountry
@@ -119,3 +131,7 @@ function darkModeSwitcher(){
     }
 }
 darkBtn.addEventListener("click",darkModeSwitcher);
+backbtn.addEventListener("click",()=>{
+    localStorage.removeItem("country")
+    location.href="index.html";
+})
